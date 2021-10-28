@@ -4,3 +4,5 @@ Simple JS projects
 - Sidebar
 - Modal
 - Questions
+- Menu
+- Video
