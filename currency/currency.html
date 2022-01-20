@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Currency Exchange</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector("form").onsubmit = function () {
+          fetch("https://api.coindesk.com/v1/bpi/currentprice.json")
+            .then((response) => response.json())
+            .then((data) => {
+              const currency = querySelector("#currency").value;
+              const rate = data.bpi.USD[currency];
+              document.querySelector(
+                "body"
+              ).innerHTML = `1 bitcoin is equal to ${rate} USD`;
+            });
+          return false;
+        };
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      <input id="currency" placeholder="Currency" type="text" />
+      <input type="submit" value="Convert" />
+    </form>
+    <div id="result"></div>
+  </body>
+</html>
